@@ -2,7 +2,7 @@ version: 0.2
 phases:
   build:
     commands:
-      - aws ecr get-login-password | docker login --username AWS --password-stdin public.ecr.aws/a3c3g9z1
-      - docker build -t builtimage .
-      - docker tag builtimage:latest public.ecr.aws/a3c3g9z1/dockerpython-flask:latest
-      - docker push  public.ecr.aws/a3c3g9z1/dockerpython-flask:latest
+      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/a3c3g9z1
+      - docker build -t pythonflask .
+      - docker tag pythonflask:latest public.ecr.aws/a3c3g9z1/pythonflask:latest
+      - docker push public.ecr.aws/a3c3g9z1/pythonflask:latest
